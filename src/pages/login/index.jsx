@@ -8,7 +8,7 @@ class Login extends Component {
                 <main>
                     <div className="max-w-md mx-auto my-12 bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                         <div className="md:flex md:flex-row">
-                            <div className="bg-blue-700 hidden md:flex md:flex-col md:justify-center md:items-center bg-blue h-[500px]">
+                            <div className="bg-blue-700 hidden md:flex md:flex-col md:justify-center md:items-center bg-blue h-100">
                                 <img src={ThumbLogin} alt="" />
                                 <div className="text-lg text-white">Don’t Forget</div>
                                 <div className="text-white">Beautiful sunsets need cloudy skies</div>
@@ -30,7 +30,7 @@ class Login extends Component {
                                     </div>
                                     <div className="flex justify-center mb-6">
                                         <div className="text-sm">
-                                            <label htmlFor="terms" className="font-medium text-gray-900 dark:text-gray-300">Don’t have an account yet?  <a href="#" className="text-blue-600 hover:underline dark:text-blue-500">Sign Up</a></label>
+                                            <label htmlFor="terms" className="font-medium text-gray-900 dark:text-gray-300">Don’t have an account yet?  <a href="/register" className="text-blue-600 hover:underline dark:text-blue-500">Sign Up</a></label>
                                         </div>
                                     </div>
                                     <button type="submit" className="w-full w-text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-white">Login</button>
