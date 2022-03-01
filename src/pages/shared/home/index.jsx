@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import NavbarComponent from '../../components/navbar';
-import FooterComponent from '../../components/footer';
+import NavbarComponent from '../../../components/navbar';
+import FooterComponent from '../../../components/footer';
 
 class Home extends Component {
     render() {

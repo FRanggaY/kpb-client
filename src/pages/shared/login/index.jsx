@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import ThumbLogin from '../../assets/thumb/thumb-login.png';
+import ThumbLogin from '../../../assets/thumb/thumb-login.png';
 
 class Login extends Component {
     render() {
