@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
-import { BrowserRouter as Router , Routes as Switch, Route } from 'react-router-dom';
-import {Home, Login, Register} from '../../pages';
+import { BrowserRouter as Router , Routes as Switch, Route, Navigate } from 'react-router-dom';
+import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users} from '../../pages';
 
 class Routes extends Component {
     render() {
@@ -8,9 +8,23 @@ class Routes extends Component {
             <Fragment>
                 <Router>
                     <Switch>
+                        {/* Incognito */}
                         <Route exact path="/" element={<Home />}></Route>
                         <Route exact path="/login" element={<Login />}></Route>
-                        <Route exact path="/register" element={<Register />}></Route>
+                        <Route exact path="/about-us" element={<AboutUs />}></Route>
+                        <Route exact path="/gallery" element={<Gallery />}></Route>
+                        <Route exact path="/activities" element={<Activities />}></Route>
+                        {/* <Route exact path="/register" element={<Register />}></Route> */}
+                        {/* END Incognito */}
+
+                        {/* ADMIN */}
+                        <Route exact path="/admin/dashboard" element={<Dashboard />}></Route>
+                        <Route exact path="/admin/settings" element={<Settings />}></Route>
+                        <Route exact path="/admin/tables" element={<Users />}></Route>
+                        <Route path="/admin" element={<Navigate replace to="/admin/dashboard" />} />
+                        {/* END ADMIN */}
+
+                        <Route path="*" element={<NotFound />} />
                     </Switch>
                 </Router>
             </Fragment>
