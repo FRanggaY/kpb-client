@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import { BrowserRouter as Router , Routes as Switch, Route, Navigate } from 'react-router-dom';
-import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users} from '../../pages';
+import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users, Profile} from '../../pages';
 
 class Routes extends Component {
     render() {
@@ -14,6 +14,7 @@ class Routes extends Component {
                         <Route exact path="/about-us" element={<AboutUs />}></Route>
                         <Route exact path="/gallery" element={<Gallery />}></Route>
                         <Route exact path="/activities" element={<Activities />}></Route>
+                        <Route exact path="/profile" element={<Profile />}></Route>
                         {/* <Route exact path="/register" element={<Register />}></Route> */}
                         {/* END Incognito */}
 
