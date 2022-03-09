@@ -51,14 +51,38 @@ class Gallery extends Component {
                             </div>
 
                             <div className="flex gap-5 justify-center flex-wrap">
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
+                                <figure>
                                 <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
+                                <figcaption className='text-center'>Title</figcaption>
+                                </figure>
                             </div>
                         </div>
                         </section>

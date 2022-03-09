@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
 import CardTable from '../../../components/cards/tables';
-import Modal from '../../../components/modal';
+import ModalUser from '../../../components/modal/users-modal/add-modal';
 
 
 class Users extends Component {
@@ -15,7 +15,7 @@ class Users extends Component {
                             <div className="w-full mb-12 px-4 justify-between">
                             <div className="text-center flex justify-between px-5 py-3whitespace-nowrap">
                                 <h6 className="text-blueGray-700 text-xl font-bold">Users</h6>
-                                <Modal/>
+                                <ModalUser/>
                             </div>
                                 <CardTable />
                             </div>

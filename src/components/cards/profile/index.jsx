@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ModalDelete from "../../modal/delete-modal";
-import ModalEdit from "../../modal/edit-modal";
+import ModalEditProfile from "../../modal/profile-modal/edit-modal";
 
 // components
 
@@ -101,7 +101,7 @@ export default function CardProfile({ color }) {
                   130003415298
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditProfile/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -127,7 +127,7 @@ export default function CardProfile({ color }) {
                   img.jpg
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditProfile/>
                 <ModalDelete/>
                 </td>
               </tr>

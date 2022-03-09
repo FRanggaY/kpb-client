@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
 
-class ModalEdit extends Component {
+class ModalUser extends Component {
     render() {
         return (
             <Fragment>
                 <main>
                 <div class="block space-y-4 md:flex md:space-y-0 md:space-x-4">
-                    <button class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button" data-modal-toggle="large-modal">Ubah
+                    <button class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="large-modal">Tambah
                     </button>
                 </div>
                 <div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full" id="large-modal">
@@ -22,7 +22,8 @@ class ModalEdit extends Component {
                             {/* <!-- Modal body --> */}
                             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <form className="pt-10 px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="#">
-                                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Ubah Data</h3>
+                                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">Tambah User</h3>
+
                                     
                                    <div class="relative z-0 mb-6 w-full group">
                                     <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Nama</label>
@@ -33,8 +34,8 @@ class ModalEdit extends Component {
                                         <input type="Text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Unit Kerja" required />
                                 </div>
                                 <div class="relative z-0 mb-6 w-full group">
-                                    <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                                        <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Email" required />
+                                    <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Jenis Kelamin</label>
+                                        <input type="text" name="Jenis Kelamin" id="Jenis Kelamin" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Jenis Kelamin" required />
                                 </div>
                                 <div class="grid xl:grid-cols-2 xl:gap-6">
                                     <div class="relative z-0 mb-6 w-full group">
@@ -42,7 +43,7 @@ class ModalEdit extends Component {
                                         <input type="Text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="NIP" required />
                                     </div>
                                     <div class="relative z-0 mb-6 w-full group">
-                                        <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Jenis Kelamin</label>
+                                        <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Posisi KPB</label>
                                         <input type="Text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Jenis Kelamin" required />
                                     </div>
                                 </div>
@@ -52,7 +53,7 @@ class ModalEdit extends Component {
                                         <input type="Text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="NIK" required />
                                     </div>
                                     <div class="relative z-0 mb-6 w-full group">
-                                        <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Jabatan</label>
+                                        <label for="Name" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300">Posisi departemen</label>
                                         <input type="Text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Jabatan" required />
                                     </div>
                                 </div>
@@ -60,7 +61,7 @@ class ModalEdit extends Component {
                             </div>
                             {/* <!-- Modal footer --> */}
                             <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                                <button data-modal-toggle="large-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ubah</button>
+                                <button data-modal-toggle="large-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
                                 <button data-modal-toggle="large-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Batal</button>
                             </div>
                         </div>
@@ -72,4 +73,4 @@ class ModalEdit extends Component {
     }
 }
 
-export default ModalEdit;
+export default ModalUser;

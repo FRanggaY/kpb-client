@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ModalDelete from "../../modal/delete-modal";
-import ModalEdit from "../../modal/edit-modal";
+import ModalEditUser from "../../modal/users-modal/edit-modal";
 
 // components
 
@@ -143,7 +143,7 @@ export default function CardTable({ color }) {
                   Wakil Ketua
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditUser/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -181,7 +181,7 @@ export default function CardTable({ color }) {
                   Wakil Ketua
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditUser/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -219,7 +219,7 @@ export default function CardTable({ color }) {
                   Wakil Ketua
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditUser/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -258,7 +258,7 @@ export default function CardTable({ color }) {
                   Wakil Ketua
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditUser/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -297,7 +297,7 @@ export default function CardTable({ color }) {
                   Wakil Ketua
                 </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditUser/>
                 <ModalDelete/>
                 </td>
               </tr>

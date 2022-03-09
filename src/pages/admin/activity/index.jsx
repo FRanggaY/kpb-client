@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
 import CardActivity from '../../../components/cards/activity';
-import Modal from '../../../components/modal';
+import ModalActivity from '../../../components/modal/activity-modal/add-modal';
 
 class Activity extends Component {
     render() {
@@ -14,7 +14,7 @@ class Activity extends Component {
                             <div className="w-full lg:w-12/12 px-4">
                                 <div className="text-center flex justify-between px-5 py-3whitespace-nowrap">
                                     <h6 className="text-blueGray-700 text-xl font-bold">Activities</h6>
-                                    <Modal/>
+                                    <ModalActivity/>
                                 </div>
                                 <CardActivity/>
                             </div>

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
 import CardGallery from '../../../components/cards/gallery';
-import Modal from '../../../components/modal';
+import ModalGallery from '../../../components/modal/gallery-modal/add-modal';
 
 class GalleryAdmin extends Component {
     render() {
@@ -14,7 +14,7 @@ class GalleryAdmin extends Component {
                             <div className="w-full lg:w-12/12 px-4">
                                 <div className="text-center flex justify-between px-5 py-3whitespace-nowrap">
                                     <h6 className="text-blueGray-700 text-xl font-bold">Gallery</h6>
-                                    <Modal/>
+                                    <ModalGallery/>
                                 </div>
                                 <CardGallery/>
                             </div>
