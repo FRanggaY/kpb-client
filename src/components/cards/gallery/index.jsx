@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ModalDelete from "../../modal/delete-modal";
-import ModalEdit from "../../modal/edit-modal";
+import ModalEditGallery from "../../modal/gallery-modal/edit-modal";
 
 // components
 
@@ -44,6 +44,16 @@ export default function CardGallery({ color }) {
                       ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
+                >
+                  title
+                </th>
+                <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
+                  }
                 >Edit
                 </th>
               </tr>
@@ -54,8 +64,12 @@ export default function CardGallery({ color }) {
                   <i className="fas fa-circle text-teal-500 mr-2"></i>
                   img.jpg
                 </td>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <i className="fas fa-circle text-teal-500 mr-2"></i>
+                  title
+                </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditGallery/>
                 <ModalDelete/>
                 </td>
               </tr>
@@ -64,8 +78,12 @@ export default function CardGallery({ color }) {
                   <i className="fas fa-circle text-teal-500 mr-2"></i>
                   img.jpg
                 </td>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <i className="fas fa-circle text-teal-500 mr-2"></i>
+                  title
+                </td>
                 <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEdit/>
+                <ModalEditGallery/>
                 <ModalDelete/>
                 </td>
               </tr>
