@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import { BrowserRouter as Router , Routes as Switch, Route, Navigate } from 'react-router-dom';
-import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users, Profile} from '../../pages';
+import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users,Activity, Profile, ProfileAdmin} from '../../pages';
 
 class Routes extends Component {
     render() {
@@ -22,6 +22,8 @@ class Routes extends Component {
                         <Route exact path="/admin/dashboard" element={<Dashboard />}></Route>
                         <Route exact path="/admin/settings" element={<Settings />}></Route>
                         <Route exact path="/admin/tables" element={<Users />}></Route>
+                        <Route exact path="/admin/activity" element={<Activity/>}></Route>
+                        <Route exact path="/admin/profile" element={<ProfileAdmin/>}></Route>
                         <Route path="/admin" element={<Navigate replace to="/admin/dashboard" />} />
                         {/* END ADMIN */}
 

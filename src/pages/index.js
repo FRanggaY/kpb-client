@@ -9,7 +9,8 @@ import NotFound from './error/not-found';
 import Dashboard from './admin/dashboard';
 import Settings from './admin/settings';
 import Users from './admin/users';
-
+import Activity from './admin/activity';
+import ProfileAdmin from './admin/profile-admin';
 
 export {
     Home, 
@@ -17,9 +18,11 @@ export {
     AboutUs,
     Gallery,
     Activities,
+    Activity,
     Profile,
     NotFound, 
     Dashboard, 
     Settings, 
-    Users
+    Users,
+    ProfileAdmin
 };
