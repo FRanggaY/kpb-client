@@ -11,6 +11,8 @@ import Settings from './admin/settings';
 import Users from './admin/users';
 import Activity from './admin/activity';
 import ProfileAdmin from './admin/profile-admin';
+import Advertise from './admin/advertisement';
+import GalleryAdmin from './admin/gallery-admin';
 
 export {
     Home, 
@@ -24,5 +26,7 @@ export {
     Dashboard, 
     Settings, 
     Users,
-    ProfileAdmin
+    ProfileAdmin,
+    Advertise,
+    GalleryAdmin
 };

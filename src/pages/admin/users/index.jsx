@@ -4,8 +4,6 @@ import CardTable from '../../../components/cards/tables';
 import Modal from '../../../components/modal';
 
 
-import {BsPlusLg} from 'react-icons/bs'
-
 class Users extends Component {
     render() {
         return (

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
-import CardProfile from '../../../components/cards/profile';
+import CardGallery from '../../../components/cards/gallery';
 import Modal from '../../../components/modal';
 
-class ProfileAdmin extends Component {
+class GalleryAdmin extends Component {
     render() {
         return (
             <Fragment>
@@ -13,10 +13,10 @@ class ProfileAdmin extends Component {
                         <div className="flex flex-wrap">
                             <div className="w-full lg:w-12/12 px-4">
                                 <div className="text-center flex justify-between px-5 py-3whitespace-nowrap">
-                                    <h6 className="text-blueGray-700 text-xl font-bold">Profile</h6>
+                                    <h6 className="text-blueGray-700 text-xl font-bold">Gallery</h6>
                                     <Modal/>
                                 </div>
-                                <CardProfile/>
+                                <CardGallery/>
                             </div>
                         </div>
                     </div>
@@ -27,4 +27,4 @@ class ProfileAdmin extends Component {
     }
 }
 
-export default ProfileAdmin;
+export default GalleryAdmin;

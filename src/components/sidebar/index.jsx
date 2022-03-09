@@ -127,7 +127,7 @@ export default function Sidebar() {
                         ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                         : "text-black hover:bg-gray-300")
                     }
-                    to="/admin/dashboard"
+                    to="/login"
                   >
                     <FaPowerOff
                       className={
@@ -223,7 +223,7 @@ export default function Sidebar() {
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/tables"
+                  to="/admin/activity"
                 >
                   <FaChartPie className={
                       "fas fa-table mr-2 text-sm " +
@@ -231,7 +231,7 @@ export default function Sidebar() {
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
-                  <p>Activity</p>
+                  <p>Activities</p>
                 </Link>
               </li>
 
@@ -239,15 +239,15 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
-                    (window.location.href.indexOf("/admin/activity") !== -1
+                    (window.location.href.indexOf("/admin/advertise") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/tables"
+                  to="/admin/advertise"
                 >
                   <RiAdvertisementFill className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/activity") !== -1
+                      (window.location.href.indexOf("/admin/advertise") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
@@ -259,15 +259,15 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
-                    (window.location.href.indexOf("/admin/activity") !== -1
+                    (window.location.href.indexOf("/admin/gallery") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/tables"
+                  to="/admin/gallery"
                 >
                   <RiGalleryFill className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/activity") !== -1
+                      (window.location.href.indexOf("/admin/gallery") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
