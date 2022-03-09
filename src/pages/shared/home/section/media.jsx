@@ -1,6 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 function MediaSection() {
+    const [gallery, setGallery] = useState([]);
+    useEffect(() => {
+        axios.get('/api/gallery').then(res => {
+            if(res.status === 200){
+                setGallery(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
   return (
     <section className="relative py-20 pt-12 ">
         <div className="container mx-auto px-4 ">
@@ -9,7 +21,21 @@ function MediaSection() {
                     <div id="myTabContent">
                         <div className="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                             <div className="grid grid-cols-2 gap-3">
-                                <img
+                                
+                                {gallery.map((item, index) => {
+                                    return (
+                                        // <div key={index}>
+                                        //     <img src={`http://localhost:8000/${item.image}`} alt=""/>
+                                        //     <p className="text-center text-gray-700 text-sm">{item.title}</p>
+                                        // </div>
+                                        <img
+                                            alt="..."
+                                            className="max-w-full rounded-lg shadow-lg"
+                                            src={`http://localhost:8000/${item.image}`}
+                                        />
+                                    )
+                                })}
+                                {/* <img
                                     alt="..."
                                     className="max-w-full rounded-lg shadow-lg"
                                     src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
@@ -28,7 +54,7 @@ function MediaSection() {
                                     alt="..."
                                     className="max-w-full rounded-lg shadow-lg"
                                     src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                                />
+                                /> */}
                             </div>
                             <p className="text-sm my-2 text-gray-500 dark:text-gray-400">This is some placeholder content the <a href="/gallery" className="font-medium text-gray-800 dark:text-white">Galeri</a>. </p>
                         </div>

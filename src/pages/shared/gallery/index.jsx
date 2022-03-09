@@ -1,8 +1,27 @@
 import React, { Component, Fragment } from 'react';
 import NavbarComponent from '../../../components/navbar';
 import FooterComponent from '../../../components/footer';
+import axios from 'axios';
 
 class Gallery extends Component {
+    state = {
+        gallery: [],
+    }
+
+    componentDidMount() {
+        axios.get('/sanctum/csrf-cookie').then(res => {
+            axios.get('/api/gallery').then(res => {
+                if(res.status === 200){
+                    const gallery = res.data.data;
+                    this.setState({ gallery })
+                }
+            }).catch(err => {
+                console.log(err.message)
+            })
+            ;
+        });    
+    }
+
     render() {
         return (
             <Fragment>
@@ -11,7 +30,7 @@ class Gallery extends Component {
                     <section className="relative py-20 mt-10 bg-emerald-50">
                         <div className="container mx-auto px-5 lg:px-40">
                             <h6 className="text-left text-3xl font-bold py-5">Galeri</h6>
-                            <div id="animation-carousel" class="relative pb-10" data-carousel="static">
+                            {/* <div id="animation-carousel" class="relative pb-10" data-carousel="static">
                                 <div class="overflow-hidden relative rounded-lg sm:h-48 xl:h-60 2xl:h-96">
                                     <div class="hidden duration-200 ease-linear" data-carousel-item="">
                                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
@@ -29,11 +48,8 @@ class Gallery extends Component {
                                     <div class="hidden duration-200 ease-linear" data-carousel-item="">
                                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
                                     </div>
-
-
-                                    <div class="hidden duration-200 ease-linear" data-carousel-item="">
-                                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
-                                    </div>
+        
+                                    
                                 </div>
 
                                 <button type="button" class="flex absolute top-0 left-0 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -48,41 +64,17 @@ class Gallery extends Component {
                                         <span class="hidden">Next</span>
                                     </span>
                                 </button>
-                            </div>
+                            </div> */}
 
                             <div className="flex gap-5 justify-center flex-wrap">
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
-                                <figure>
-                                <img className="h-48" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" />
-                                <figcaption className='text-center'>Title</figcaption>
-                                </figure>
+                                {this.state.gallery.map((item, index) => {
+                                    return (
+                                        <figure key={index}>
+                                                <img className="h-48" src={`http://localhost:8000/${item.image}`} />
+                                                <figcaption className='text-center bg-white p-5'>{item.title}</figcaption>
+                                        </figure>
+                                    )
+                                })}
                             </div>
                         </div>
                         </section>
