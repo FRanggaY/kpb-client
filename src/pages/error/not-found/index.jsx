@@ -4,7 +4,7 @@ class NotFound extends Component {
     render() {
         return (
             <Fragment>
-                <main>
+                <main className="absolute">
                     <p>UPSSS NOT FOUND</p>
                 </main>
             </Fragment>

@@ -1,9 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CardTeam from '../../../../components/cards/team';
 import CardAdvertisement from '../../../../components/cards/advertisement';
 import CardWorkProgram from '../../../../components/cards/work-program';
+import axios from 'axios';
 
 function DescriptionSection() {
+    const [advertisementList, setAdvertisemenList] = useState([]);
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+        axios.get('/api/advertisement').then(res => {
+            if(res.status === 200){
+                setAdvertisemenList(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
+    useEffect(() => {
+        axios.get('api/users/2').then(res => {
+            if(res.status === 200){
+                setUser(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
+
   return (
     <section className="py-3 bg-gray-100">
         <div className="my-5 px-5 gap-5 flex md:flex-row flex-col justify-around mr-auto ml-auto">
@@ -12,14 +36,21 @@ function DescriptionSection() {
                     <p className="px-3 border-l-4 border-black capitalize font-semibold">Pengurus</p>
                     <a href="/about-us" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Lihat Lainnya
-                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </a>
                 </div>
                 <div className="flex gap-5 my-5 flex-wrap justify-center">
-                    <CardTeam />
-                    <CardTeam />
-                    <CardTeam />
-                    <CardTeam />
+                    {user.map((item, index) => {
+                        return (
+                            <CardTeam 
+                                imgsrc={`http://localhost:8000/${item.profile_picture}`} 
+                                name={item.name}
+                                sosmed={item.social_media_user}
+                                position={item.position_user}
+                                key={index}
+                            />
+                        )
+                    })}
                 </div>
                 
                 <p className="px-3 border-l-4 border-black capitalize font-semibold">Program Kerja</p>
@@ -38,10 +69,16 @@ function DescriptionSection() {
             <div className="kanan">
                 <p className="px-3 border-l-4 border-black capitalize font-semibold">Iklan</p>
                 <div className="flex lg:flex-col gap-5 my-5 flex-wrap justify-center">
-                    <CardAdvertisement />
-                    <CardAdvertisement />
-                    <CardAdvertisement />
-                    <CardAdvertisement />
+                    {advertisementList.map((item, index) => {
+                        return (
+                            <CardAdvertisement 
+                                image={`http://localhost:8000/${item.image}`} 
+                                title={item.title} 
+                                link={item.link} 
+                                key={index}
+                            />
+                        )
+                    })}
                 </div>
             </div>
         </div>

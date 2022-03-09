@@ -1,5 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 import {BsJustify, BsX, BsFillPersonFill, BsFillGearFill, BsFillGridFill} from "react-icons/bs";
 import {FaPowerOff,FaChartPie} from "react-icons/fa";
@@ -7,7 +9,39 @@ import {RiGalleryFill, RiAdvertisementFill} from "react-icons/ri";
 import {AiFillProfile} from "react-icons/ai";
 
 export default function Sidebar() {
-  const [collapseShow, setCollapseShow] = React.useState("hidden");
+  const navigate = useNavigate();
+
+  const [profileList, setProfileList] = useState([]);
+  const [collapseShow, setCollapseShow] = useState("hidden");
+
+  useEffect(() => {
+        axios.get('/api/profile').then(res => {
+            if(res.status === 200){
+              setProfileList(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
+
+  const logoutSubmit = (e) => {
+    e.preventDefault();
+
+    axios.get('/sanctum/csrf-cookie').then(res => {
+        axios.post('/api/logout').then(res => {
+            if(res.status === 200){
+                localStorage.removeItem('auth_token');
+                // localStorage.setItem('auth_name', res.data.username);
+                swal("Success", res.data.message, "success");
+                navigate('/');
+            }
+        }).catch(err => {
+            swal("Warning", err.message, "warning");
+        })
+        ;
+    });
+  }
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-sky-200 flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-5">
@@ -60,41 +94,14 @@ export default function Sidebar() {
             
             <hr className="my-2 md:min-w-full " />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              AKUN
+            <h6 className="md:min-w-full text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              ACCOUNT
             </h6>
             <div>
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-                <li className="items-center">
-                  <Link
-                    className={
-                      "text-xs uppercase p-3 font-bold flex items-center " +
-                      (window.location.href.indexOf("/login") !== -1
-                        ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
-                        : "text-black hover:bg-gray-300")
-                    }
-                    to="#"
-                  >
-                    <span className="self-center text-xs font-bold whitespace-nowrap dark:text-white">Nama</span>
-                  </Link>
-                </li>
-              </ul>
-              
-              <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-                <li className="items-center">
-                  <Link
-                    className={
-                      "text-xs uppercase p-3 font-bold flex items-center " +
-                      (window.location.href.indexOf("/login") !== -1
-                        ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
-                        : "text-black hover:bg-gray-300")
-                    }
-                    to="#"
-                  >
-                    <span className="self-center text-xs font-bold whitespace-nowrap dark:text-white">ROLE</span>
-                  </Link>
-                </li>
-              </ul>
+            <div className="flex flex-col px-3 py-2 gap-2">
+              <h6 className="text-xs uppercase font-bold block no-underline">Name : {profileList.name}</h6>
+            </div>
+            <hr className="my-2 md:min-w-full " />
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 <li className="items-center">
                   <Link
@@ -120,14 +127,15 @@ export default function Sidebar() {
               </ul>
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 <li className="items-center">
-                  <Link
+                  <button
+                    type="button"
                     className={
                       "text-xs uppercase p-3 font-bold flex items-center " +
                       (window.location.href.indexOf("/login") !== -1
                         ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                         : "text-black hover:bg-gray-300")
                     }
-                    to="/login"
+                    onClick={logoutSubmit}
                   >
                     <FaPowerOff
                       className={
@@ -138,7 +146,7 @@ export default function Sidebar() {
                       }
                     />{" "}
                     <p>Log Out</p>
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -179,15 +187,15 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
+                    (window.location.href.indexOf("/admin/users") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/tables"
+                  to="/admin/users"
                 >
                   <BsFillPersonFill className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
+                      (window.location.href.indexOf("/admin/users") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
