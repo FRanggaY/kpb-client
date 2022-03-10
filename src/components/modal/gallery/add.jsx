@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { useNavigate  } from 'react-router-dom';
 
 
 function AddGalleryModal() {
 
-    const navigate = useNavigate ();
     const [galleryInput, setGallery] = useState({
-        image: '',
         title: '',
         // error_list: [],
     });
+    const [picture, setPicture] = useState([]);
     
     const handleInput = (e) => {
         e.persist();
         setGallery({...galleryInput, [e.target.name]: e.target.value});
     }
+
+    const handleImage= (e) => {
+        setPicture({ image: e.target.files[0]});
+    }
     
     const gallerySubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('image', picture.image);
+        formData.append('title', galleryInput.title);
     
-        const data = {
-            image: galleryInput.image,
-            title: galleryInput.title,
-        }
         axios.get('/sanctum/csrf-cookie').then(res => {
-            axios.post('/api/gallery', data).then(res => {
-                console.log(res.data);
+            axios.post('/api/gallery', formData).then(res => {
                 if(res.status === 200){
                     // localStorage.setItem('auth_name', res.data.username);
                     swal("Success", res.data.message, "success");
@@ -54,7 +54,7 @@ function AddGalleryModal() {
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                         </div>
-                        <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" onSubmit={gallerySubmit}>
+                        <form encType="multipart/form-data" class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" onSubmit={gallerySubmit}>
                             <h3 class="text-xl font-medium text-gray-900 dark:text-white">Add Gallery</h3>
                             <div>
                                 <label for="title" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
@@ -63,7 +63,7 @@ function AddGalleryModal() {
                             </div>
                             <div>
                                 <label for="image" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Image</label>
-                                <input onChange={handleInput} value={galleryInput.image} name="image" id="image" className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" type="file"/>
+                                <input onChange={handleImage} value={galleryInput.image} name="image" id="image" className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" type="file"/>
                                 {/* <span>{galleryInput.error_list.password}</span> */}
                             </div>
                                 
