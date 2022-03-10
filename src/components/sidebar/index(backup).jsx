@@ -9,6 +9,7 @@ import {RiGalleryFill, RiAdvertisementFill} from "react-icons/ri";
 import {AiFillProfile} from "react-icons/ai";
 
 export default function Sidebar() {
+  
   const navigate = useNavigate();
 
   const [profileList, setProfileList] = useState([]);
@@ -41,7 +42,10 @@ export default function Sidebar() {
         })
         ;
     });
-  }
+    
+}
+
+  
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-sky-200 flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-5">
@@ -55,7 +59,6 @@ export default function Sidebar() {
             <BsJustify />
           </button>
           {/* Brand */}
-          
           <a
             className="md:inline text-left md:pb-2 text-blueGray-600 mr-0 inline whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             href="/"
@@ -74,12 +77,12 @@ export default function Sidebar() {
             <div className="md:min-w-full md:hidden block border-b border-solid border-blueGray-200">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <a
+                  <Link
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    href="/"
+                    to="/"
                   >
                     KPB
-                  </a>
+                  </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -103,16 +106,17 @@ export default function Sidebar() {
               <h6 className="text-xs uppercase font-bold block no-underline">Name : {profileList.name}</h6>
             </div>
             <hr className="my-2 md:min-w-full " />
+
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 <li className="items-center">
-                  <a
+                  <Link
                     className={
                       "text-xs uppercase p-3 font-bold flex items-center " +
                       (window.location.href.indexOf("/admin/settings") !== -1
                         ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                         : "text-black hover:bg-gray-300")
                     }
-                    href="/admin/settings"
+                    to="/admin/settings"
                   >
                     <BsFillGearFill
                       className={
@@ -123,7 +127,7 @@ export default function Sidebar() {
                       }
                     />{" "}
                     <p>Settings</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
@@ -155,14 +159,14 @@ export default function Sidebar() {
             <hr className="my-2 md:min-w-full " />
                   <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                     <li className="items-center">
-                      <a
+                      <Link
                         className={
                           "text-xs uppercase p-3 font-bold flex items-center " +
                           (window.location.href.indexOf("/admin/dashboard") !== -1
                             ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                             : "text-black hover:bg-gray-300")
                         }
-                        href="/admin/dashboard"
+                        to="/admin/dashboard"
                       >
                         <BsFillGridFill
                           className={
@@ -173,7 +177,7 @@ export default function Sidebar() {
                           }
                         />{" "}
                         <p>Dashboard</p>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
             {/* Divider */}
@@ -184,38 +188,35 @@ export default function Sidebar() {
             </h6>
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-            {profileList.role === "admin" ? (
               <li className="items-center">
-              <a
-                className={
-                  "text-xs uppercase p-3 font-bold flex items-center " +
-                  (window.location.href.indexOf("/admin/users") !== -1
-                    ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
-                    : "text-black hover:bg-gray-300")
-                }
-                href="/admin/users"
-              >
-                <BsFillPersonFill className={
-                    "fas fa-table mr-2 text-sm " +
-                    (window.location.href.indexOf("/admin/users") !== -1
-                      ? "opacity-75"
-                      : "text-blueGray-300")
-                  } />{" "} 
-                <p>Users</p>
-              </a>
-            </li>
-            ):null}
-              
+                <Link
+                  className={
+                    "text-xs uppercase p-3 font-bold flex items-center " +
+                    (window.location.href.indexOf("/admin/tables") !== -1
+                      ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
+                      : "text-black hover:bg-gray-300")
+                  }
+                  to="/admin/tables"
+                >
+                  <BsFillPersonFill className={
+                      "fas fa-table mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/tables") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    } />{" "} 
+                  <p>Users</p>
+                </Link>
+              </li>
 
-              {/* <li className="items-center">
-                <a
+              <li className="items-center">
+                <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/profile") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  href="/admin/profile"
+                  to="/admin/profile"
                 >
                   <AiFillProfile className={
                       "fas fa-table mr-2 text-sm " +
@@ -224,18 +225,18 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Profile</p>
-                </a>
-              </li> */}
+                </Link>
+              </li>
 
               <li className="items-center">
-                <a
+                <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/activity") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  href="/admin/activity"
+                  to="/admin/tables"
                 >
                   <FaChartPie className={
                       "fas fa-table mr-2 text-sm " +
@@ -243,48 +244,48 @@ export default function Sidebar() {
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
-                  <p>Activities</p>
-                </a>
+                  <p>Activity</p>
+                </Link>
               </li>
 
               <li className="items-center">
-                <a
+                <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
-                    (window.location.href.indexOf("/admin/advertise") !== -1
+                    (window.location.href.indexOf("/admin/activity") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  href="/admin/advertise"
+                  to="/admin/tables"
                 >
                   <RiAdvertisementFill className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/advertise") !== -1
+                      (window.location.href.indexOf("/admin/activity") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Advertisement</p>
-                </a>
+                </Link>
               </li>
 
               <li className="items-center">
-                <a
+                <Link
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
-                    (window.location.href.indexOf("/admin/gallery") !== -1
+                    (window.location.href.indexOf("/admin/activity") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  href="/admin/gallery"
+                  to="/admin/tables"
                 >
                   <RiGalleryFill className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/gallery") !== -1
+                      (window.location.href.indexOf("/admin/activity") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Gallery</p>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
