@@ -55,13 +55,14 @@ export default function Sidebar() {
             <BsJustify />
           </button>
           {/* Brand */}
-          <Link
+          
+          <a
             className="md:inline text-left md:pb-2 text-blueGray-600 mr-0 inline whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-            to="/"
+            href="/"
           >
             <svg className="mr-3 h-10 inline" viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.87695 53H28.7791C41.5357 53 51.877 42.7025 51.877 30H24.9748C12.2182 30 1.87695 40.2975 1.87695 53Z" fill="#76A9FA"></path><path d="M0.000409561 32.1646L0.000409561 66.4111C12.8618 66.4111 23.2881 55.9849 23.2881 43.1235L23.2881 8.87689C10.9966 8.98066 1.39567 19.5573 0.000409561 32.1646Z" fill="#A4CAFE"></path><path d="M50.877 5H23.9748C11.2182 5 0.876953 15.2975 0.876953 28H27.7791C40.5357 28 50.877 17.7025 50.877 5Z" fill="#1C64F2"></path></svg>
             <span className="self-center inline text-lg font-semibold whitespace-nowrap dark:text-white">KPB</span>
-          </Link>
+          </a>
           
           <div
             className={
@@ -73,12 +74,12 @@ export default function Sidebar() {
             <div className="md:min-w-full md:hidden block border-b border-solid border-blueGray-200">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <Link
+                  <a
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                    to="/"
+                    href="/"
                   >
                     KPB
-                  </Link>
+                  </a>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -104,14 +105,14 @@ export default function Sidebar() {
             <hr className="my-2 md:min-w-full " />
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 <li className="items-center">
-                  <Link
+                  <a
                     className={
                       "text-xs uppercase p-3 font-bold flex items-center " +
                       (window.location.href.indexOf("/admin/settings") !== -1
                         ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                         : "text-black hover:bg-gray-300")
                     }
-                    to="/admin/settings"
+                    href="/admin/settings"
                   >
                     <BsFillGearFill
                       className={
@@ -122,7 +123,7 @@ export default function Sidebar() {
                       }
                     />{" "}
                     <p>Settings</p>
-                  </Link>
+                  </a>
                 </li>
               </ul>
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
@@ -154,14 +155,14 @@ export default function Sidebar() {
             <hr className="my-2 md:min-w-full " />
                   <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                     <li className="items-center">
-                      <Link
+                      <a
                         className={
                           "text-xs uppercase p-3 font-bold flex items-center " +
                           (window.location.href.indexOf("/admin/dashboard") !== -1
                             ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                             : "text-black hover:bg-gray-300")
                         }
-                        to="/admin/dashboard"
+                        href="/admin/dashboard"
                       >
                         <BsFillGridFill
                           className={
@@ -172,7 +173,7 @@ export default function Sidebar() {
                           }
                         />{" "}
                         <p>Dashboard</p>
-                      </Link>
+                      </a>
                     </li>
                   </ul>
             {/* Divider */}
@@ -184,14 +185,14 @@ export default function Sidebar() {
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
-                <Link
+                <a
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/users") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/users"
+                  href="/admin/users"
                 >
                   <BsFillPersonFill className={
                       "fas fa-table mr-2 text-sm " +
@@ -200,18 +201,18 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Users</p>
-                </Link>
+                </a>
               </li>
 
-              <li className="items-center">
-                <Link
+              {/* <li className="items-center">
+                <a
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/profile") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/profile"
+                  href="/admin/profile"
                 >
                   <AiFillProfile className={
                       "fas fa-table mr-2 text-sm " +
@@ -220,18 +221,18 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Profile</p>
-                </Link>
-              </li>
+                </a>
+              </li> */}
 
               <li className="items-center">
-                <Link
+                <a
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/activity") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/activity"
+                  href="/admin/activity"
                 >
                   <FaChartPie className={
                       "fas fa-table mr-2 text-sm " +
@@ -240,18 +241,18 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Activities</p>
-                </Link>
+                </a>
               </li>
 
               <li className="items-center">
-                <Link
+                <a
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/advertise") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/advertise"
+                  href="/admin/advertise"
                 >
                   <RiAdvertisementFill className={
                       "fas fa-table mr-2 text-sm " +
@@ -260,18 +261,18 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Advertisement</p>
-                </Link>
+                </a>
               </li>
 
               <li className="items-center">
-                <Link
+                <a
                   className={
                     "text-xs uppercase p-3 font-bold flex items-center " +
                     (window.location.href.indexOf("/admin/gallery") !== -1
                       ? "text-white hover:bg-gray-300 bg-gray-400 border-l-4 border-indigo-500/100"
                       : "text-black hover:bg-gray-300")
                   }
-                  to="/admin/gallery"
+                  href="/admin/gallery"
                 >
                   <RiGalleryFill className={
                       "fas fa-table mr-2 text-sm " +
@@ -280,7 +281,7 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     } />{" "} 
                   <p>Gallery</p>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

@@ -39,7 +39,7 @@ export default function CardSettings() {
                   />
                 </div>
               </div> */}
-              <div className="w-full lg:w-6/12 px-4">
+              <div className="w-full lg:w-12/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -54,26 +54,18 @@ export default function CardSettings() {
                   />
                 </div>
               </div>
-            </div>
-
-
-            <h5 className="text-blueGray-400 text-lg mt-3 font-bold uppercase">
-              Contact Information
-            </h5>
-            <hr className="my-3 border-b-1 border-blueGray-300" />
-            <div className="flex flex-wrap">
-              <div className="w-full lg:w-12/12 px-4">
+              <div className="w-full lg:w-4/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Address
+                    Work-Unit
                   </label>
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="caringin Bogor, Jawa Barat"
+                    defaultValue="SMK WIKRAMA"
                   />
                 </div>
               </div>
@@ -83,27 +75,12 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    City
-                  </label>
-                  <input
-                    type="email"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Bogor"
-                  />
-                </div>
-              </div>
-              <div className="w-full lg:w-4/12 px-4">
-                <div className="relative w-full mb-3">
-                  <label
-                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Country
+                    Position-KPB
                   </label>
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="Indonesia"
+                    defaultValue="Posisi"
                   />
                 </div>
               </div>
@@ -113,7 +90,7 @@ export default function CardSettings() {
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                     htmlFor="grid-password"
                   >
-                    Postal Code
+                    Position-Department
                   </label>
                   <input
                     type="text"
@@ -122,6 +99,102 @@ export default function CardSettings() {
                   />
                 </div>
               </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="Posision"
+                  >
+                    Gender
+                  </label>
+                  <input
+                    type="text"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="Gender"
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    NIK
+                  </label>
+                  <input
+                    type="text"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="NIK"
+                  />
+                </div>
+              </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    htmlFor="grid-password"
+                  >
+                    NIP
+                  </label>
+                  <input
+                    type="text"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    defaultValue="NIP"
+                  />
+                </div>
+              </div>
+            </div>
+            <h5 className="text-blueGray-400 text-lg mt-3 font-bold uppercase">
+              Contact Information
+            </h5>
+            <hr className="my-3 border-b-1 border-blueGray-300" />
+            <div className="flex flex-wrap">
+              <div className="w-full lg:w-4/12 px-4">
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Facebook
+                    </label>
+                    <input
+                      type="email"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      defaultValue="your facebook account"
+                    />
+                  </div>
+                </div>
+                <div className="w-full lg:w-4/12 px-4">
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      Instagram
+                    </label>
+                    <input
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      defaultValue="your instagram account"
+                    />
+                  </div>
+                </div>
+                <div className="w-full lg:w-4/12 px-4">
+                  <div className="relative w-full mb-3">
+                    <label
+                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      htmlFor="grid-password"
+                    >
+                      twitter
+                    </label>
+                    <input
+                      type="text"
+                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      defaultValue="your twitter account"
+                    />
+                  </div>
+                </div>
             </div>
           </form>
         </div>
