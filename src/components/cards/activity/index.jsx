@@ -1,13 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
-import ModalDelete from "../../modal/delete-modal";
-import ModalEditActivity from "../../modal/activity-modal/edit-modal";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 // components
 
 // import TableDropdown from "../dropdowns/table";
 
 export default function CardActivity({ color }) {
+  const [activityList, setActivity] = useState([]);
+  const deleteActivity = (e, id) => {
+    e.preventDefault();
+
+    const thisDeleted = e.currentTarget;
+    thisDeleted.innerText = "Deleting";
+
+    axios.delete(`/api/activities/${id}`).then(res => {
+      if(res.status === 200){
+        swal("Success", res.data.message, "success");
+        thisDeleted.closest("tr").remove();
+      }
+    }).catch(err => {
+        console.log(err.message)
+        swal("Warning", 'something wrong', "warning");
+    })
+    ;
+  }
+
+  useEffect(() => {
+        axios.get('/api/activities').then(res => {
+            if(res.status === 200){
+              setActivity(res.data.data)
+              // setPaginateList(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
   return (
     <>
       <div
@@ -89,7 +119,37 @@ export default function CardActivity({ color }) {
               </tr>
             </thead>
             <tbody>
-            <tr>
+            {activityList.map((activity, index) => (
+                <tr key={index}>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-teal-500 mr-2"></i>
+                      {activity.title ? activity.title : "-" }
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-teal-500 mr-2"></i>
+                      {activity.description ? activity.description : "-" }
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-teal-500 mr-2"></i>
+                      {activity.time ? activity.time : "-" }
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-teal-500 mr-2"></i>
+                      {activity.image ? activity.image : "-" }
+                      <img alt="" src={`http://localhost:8000/${activity.image}`}></img>
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <i className="fas fa-circle text-teal-500 mr-2"></i>
+                      {activity.link ? activity.link : "-" }
+                    </td>
+                      <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          {/* <activity link={`edit/${activity.id}`} /> */}
+                          <a href={`activity/edit/${activity.id}/`} className="inline text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" >Update</a>
+                          <button className="inline text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={(e) =>deleteActivity(e, activity.id)} >Delete</button>
+                      </td>
+                </tr>
+              ))}
+            {/* <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <span
                     className={
@@ -118,43 +178,13 @@ export default function CardActivity({ color }) {
                 <ModalEditActivity/>
                 <ModalDelete/>
                 </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      "ml-3 font-bold " +
-                      +(color === "light" ? "text-blueGray-600" : "text-white")
-                    }
-                  >
-                    Visi                 </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Misi
-                </td>
-                <td className="border-t-0 px-6 w-12 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-teal-500 mr-2 tracking-wider"></i>
-                  4.30 PM
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-teal-500 mr-2"></i>
-                  img.jpg
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-teal-500 mr-2"></i>
-                  test
-                </td>
-                <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEditActivity/>
-                <ModalDelete/>
-                </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
       </div>
       
-        <nav aria-label="Page navigation example">
+        {/* <nav aria-label="Page navigation example">
         <ul class="inline-flex items-center -space-x-px">
         <li>
         <a href="#" class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -184,7 +214,7 @@ export default function CardActivity({ color }) {
         </a>
         </li>
         </ul>
-        </nav>
+        </nav> */}
 
     </>
   );
