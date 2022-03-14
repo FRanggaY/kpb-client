@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
 import CardGallery from '../../../components/cards/gallery';
-// import ModalGallery from '../../../components/modal/gallery-modal/add-modal';
 import AddGalleryModal from '../../../components/modal/gallery/add';
 
 class GalleryAdmin extends Component {
@@ -21,7 +20,6 @@ class GalleryAdmin extends Component {
                                         </a>
                                         <AddGalleryModal/>
                                     </div>
-                                    {/* <ModalGallery/> */}
                                     
                                 </div>
                                 <CardGallery/>
