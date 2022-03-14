@@ -1,8 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import Sidebar from '../../../components/sidebar';
 import CardStats from '../../../components/cards/stats';
+import axios from 'axios';
 
 class Dashboard extends Component {
+    state = {
+        userList: [],
+    }
+
+  componentDidMount() {
+    axios.get('/sanctum/csrf-cookie').then(res => {
+        axios.get('/api/users/detail/10').then(res => {
+            if(res.status === 200){
+                const userList = res.data.data;
+                this.setState({ userList })
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+    });    
+  }
     render() {
         return (
             <Fragment>
@@ -17,14 +35,14 @@ class Dashboard extends Component {
                                     <div className="flex flex-wrap">
                                     <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                                         <CardStats
-                                        statSubtitle="Joined"
-                                        statTitle="350 Person"
-                                        statDescripiron="Since last month"
+                                        statSubtitle="All Account"
+                                        statTitle={this.state.userList.total}
+                                        statDescripiron=""
                                         statIconName="far fa-chart-bar"
                                         statIconColor="bg-red-500"
                                         />
                                     </div>
-                                    <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
+                                    {/* <div className="w-full lg:w-4/12 xl:w-4/12 px-4">
                                         <CardStats
                                         statSubtitle="Verified"
                                         statTitle="155"
@@ -41,7 +59,7 @@ class Dashboard extends Component {
                                         statIconName="fas fa-users"
                                         statIconColor="bg-pink-500"
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

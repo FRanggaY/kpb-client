@@ -159,7 +159,7 @@ export default function CardTable({ color }) {
                       {user.name}                 </span>
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {user.unit_work ? user.unit_work : "-" }  
+                    {user.additional_user ? user.additional_user.work_unit : "-" }  
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <i className="fas fa-circle text-teal-500 mr-2"></i>
