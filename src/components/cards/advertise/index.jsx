@@ -1,13 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
-import ModalDelete from "../../modal/delete-modal";
-import ModalEditAdvertise from "../../modal/advertise-modal/edit-modal";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 // components
 
 // import TableDropdown from "../dropdowns/table";
 
 export default function CardAdvertise({ color }) {
+  const [advertiseList, setAdvetise] = useState([]);
+  const deleteAdversite = (e, id) => {
+    e.preventDefault();
+
+    const thisDeleted = e.currentTarget;
+    thisDeleted.innerText = "Deleting";
+
+    axios.delete(`/api/advertisement/${id}`).then(res => {
+      if(res.status === 200){
+        swal("Success", res.data.message, "success");
+        thisDeleted.closest("tr").remove();
+      }
+    }).catch(err => {
+        console.log(err.message)
+        swal("Warning", 'something wrong', "warning");
+    })
+    ;
+  }
+
+  useEffect(() => {
+        axios.get('/api/advertisement').then(res => {
+            if(res.status === 200){
+              setAdvetise(res.data.data)
+              // setPaginateList(res.data.data)
+            }
+        }).catch(err => {
+            console.log(err.message)
+        })
+        ;
+  },[]);
   return (
     <>
       <div
@@ -69,56 +99,35 @@ export default function CardAdvertise({ color }) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                <span
-                    className={
-                      "ml-3 font-bold " +
-                      +(color === "light" ? "text-blueGray-600" : "text-white")
-                    }
-                  >
-                    image.jpg               </span>            
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  title
+              {advertiseList.map((advertise, index) => (
+                <tr key={index}>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <i className="fas fa-circle text-teal-500 mr-2"></i>
+                  {advertise.image ? advertise.image : "-" }
+                  <img alt="" src={`http://localhost:8000/${advertise.image}`}></img>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <i className="fas fa-circle text-teal-500 mr-2"></i>
-                  link
-                </td>
-                <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEditAdvertise/>
-                <ModalDelete/>
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      "ml-3 font-bold " +
-                      +(color === "light" ? "text-blueGray-600" : "text-white")
-                    }
-                  >
-                    image.jpg               </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Title
+                  {advertise.title ? advertise.title : "-" }
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-teal-500 mr-2 inline-block"></i>
-                  link
+                  <i className="fas fa-circle text-teal-500 mr-2"></i>
+                  {advertise.link ? advertise.link : "-" }
                 </td>
-                <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <ModalEditAdvertise/>
-                <ModalDelete/>
-                </td>
-              </tr>
+                  <td className="inline-flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      {/* <advertise link={`edit/${advertise.id}`} /> */}
+                      <a href={`advertise/edit/${advertise.id}/`} className="inline text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" >Update</a>
+                      <button className="inline text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={(e) =>deleteAdversite(e, advertise.id)} >Delete</button>
+                  </td>
+                </tr>
+              ))}
+              
             </tbody>
           </table>
         </div>
       </div>
       
-        <nav aria-label="Page navigation example">
+        {/* <nav aria-label="Page navigation example">
         <ul class="inline-flex items-center -space-x-px">
         <li>
         <a href="#" class="block py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -148,7 +157,7 @@ export default function CardAdvertise({ color }) {
         </a>
         </li>
         </ul>
-        </nav>
+        </nav> */}
 
     </>
   );
