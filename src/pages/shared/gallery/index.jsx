@@ -27,7 +27,7 @@ class Gallery extends Component {
             <Fragment>
                 <NavbarComponent />
                 <main>
-                    <section className="relative py-20 mt-10 bg-emerald-50">
+                    <section className="relative py-20 mt-10 bg-white">
                         <div className="container mx-auto px-5 lg:px-40">
                             <h6 className="text-left text-3xl font-bold py-5">Galeri</h6>
                             {/* <div id="animation-carousel" class="relative pb-10" data-carousel="static">
@@ -66,12 +66,12 @@ class Gallery extends Component {
                                 </button>
                             </div> */}
 
-                            <div className="flex gap-5 justify-center flex-wrap">
+                            <div className="flex gap-5 justify-center flex-wrap drop-shadow-lg">
                                 {this.state.gallery.map((item, index) => {
                                     return (
                                         <figure key={index}>
                                                 <img className="h-48" src={`http://localhost:8000/${item.image}`} />
-                                                <figcaption className='text-center bg-white p-5'>{item.title}</figcaption>
+                                                <figcaption className="text-center bg-gray-300 text-gray-900 p-5 rounded-br-lg rounded-bl-lg">{item.title}</figcaption>
                                         </figure>
                                     )
                                 })}

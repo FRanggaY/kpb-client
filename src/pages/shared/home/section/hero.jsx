@@ -3,9 +3,9 @@ import ThumbProfile from '../../../../assets/thumb/thumb-profile.png';
 
 function HeroSection() {
   return (
-    <section className="relative mt-auto">
+    <section className="relative mt-auto w-full h-full">
         <div className="pt-10">
-            <div className="my-5 flex md:flex-row flex-col items-center justify-center">
+            <div className="my-36 flex md:flex-row flex-col items-center justify-center">
                 <div>
                     <img className=" h-64 " src={ThumbProfile} alt=""/>
                 </div>

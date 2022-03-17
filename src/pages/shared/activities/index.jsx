@@ -35,7 +35,7 @@ class Activities extends Component {
                                 <div class="blockbg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                                    <div className="flex flex-col lg:flex-row">
                                        <div className="flex">
-                                            <div className="bg-sky-900 p-8 w-36 lg:rounded-l-lg rounded-tl-lg text-center">  
+                                            <div className="bg-gray-700 p-8 w-48 lg:rounded-l-lg rounded-tl-lg text-center">  
                                                 <h5 class="mb-2 text-2xl w-14 font-bold tracking-tight text-white">{item.created_at}</h5>
                                                 {/* <h5 class="mb-2 text-2xl font-bold tracking-tight text-white"><span className="text-5xl">14</span> {item.created_at}</h5> */}
                                             </div>

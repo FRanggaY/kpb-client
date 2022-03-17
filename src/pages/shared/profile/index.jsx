@@ -10,19 +10,19 @@ class Profile extends Component {
             <Fragment>
                 <NavbarComponent />
                 <main>
-                        <section className="bg-sky-200 mt-10">
+                        <section className="bg-white mt-10">
                             <div className="container mx-auto px-4 pb-8">
                                 <div className="flex flex-wrap-reverse items-center">
                                 <div className="w-full md:w-6/12 px-4 ml-auto">
                                     <div className="mb-12 mt-12">    
-                                        <div className="block py-10 pr-12 pl-10 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">VISI</h5>
-                                            <p className="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eveniet dolores, animi maxime numquam expedita incidunt fuga. Maxime ab similique aliquid tempora obcaecati illo unde sapiente, est, tempore placeat sequi?</p>
+                                        <div className="block py-10 pr-12 pl-10 w-full bg-gray-700 rounded-lg border border-gray-200 shadow-md hover:bg-gray-500 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-300 dark:text-white">VISI</h5>
+                                            <p className="font-normal text-gray-300 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eveniet dolores, animi maxime numquam expedita incidunt fuga. Maxime ab similique aliquid tempora obcaecati illo unde sapiente, est, tempore placeat sequi?</p>
                                         </div>
                                     </div>
-                                    <div className="block py-10 pr-12 pl-10 w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">MISI</h5>
-                                        <p className="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ducimus similique quas optio suscipit qui nemo incidunt corrupti, sapiente eius veritatis numquam consectetur nam iusto voluptatem, dolores rerum ad deleniti.</p>
+                                    <div className="block py-10 pr-12 pl-10 w-full bg-gray-700 rounded-lg border border-gray-200 shadow-md hover:bg-gray-500 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-300 dark:text-white">MISI</h5>
+                                        <p className="font-normal text-gray-300 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed ducimus similique quas optio suscipit qui nemo incidunt corrupti, sapiente eius veritatis numquam consectetur nam iusto voluptatem, dolores rerum ad deleniti.</p>
                                     </div>
                                 </div>
 
