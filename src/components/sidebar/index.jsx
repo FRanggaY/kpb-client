@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 import {BsJustify, BsX, BsFillPersonFill, BsFillGearFill, BsFillGridFill} from "react-icons/bs";
 import {FaPowerOff,FaChartPie} from "react-icons/fa";
 import {RiGalleryFill, RiAdvertisementFill} from "react-icons/ri";
-import {AiFillProfile} from "react-icons/ai";
+// import {AiFillProfile} from "react-icons/ai";
 
 export default function Sidebar() {
   const navigate = useNavigate();
@@ -28,19 +28,26 @@ export default function Sidebar() {
   const logoutSubmit = (e) => {
     e.preventDefault();
 
-    axios.get('/sanctum/csrf-cookie').then(res => {
-        axios.post('/api/logout').then(res => {
-            if(res.status === 200){
-                localStorage.removeItem('auth_token');
-                // localStorage.setItem('auth_name', res.data.username);
-                swal("Success", res.data.message, "success");
-                navigate('/');
-            }
-        }).catch(err => {
-            swal("Warning", err.message, "warning");
-        })
-        ;
-    });
+    swal({
+        title: 'Do you really want to log out?',
+        icon: 'warning',
+        buttons: [true, "Yes"],
+    }).then((result) => {
+        if(result){
+          axios.get('/sanctum/csrf-cookie').then(res => {
+              axios.post('/api/logout').then(res => {
+                  if(res.status === 200){
+                      localStorage.removeItem('auth_token');
+                      swal("Success", res.data.message, "success");
+                      navigate('/');
+                  }
+              }).catch(err => {
+                  swal("Warning", err.message, "warning");
+              })
+              ;
+          });
+        }
+    })
   }
   return (
     <>

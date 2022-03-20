@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import { BrowserRouter as Router , Routes as Switch, Route, Navigate } from 'react-router-dom';
-import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users,Activity, Profile, ProfileAdmin, GalleryAdmin} from '../../pages';
+import {Home, Login, AboutUs, Gallery, Activities, NotFound, Dashboard, Settings, Users,Activity, Profile, GalleryAdmin} from '../../pages';
 import EditGalleryAdmin from '../../pages/admin/gallery-admin/edit';
 import EditAdvertiseAdmin from '../../pages/admin/advertisement/edit';
 import EditActivityAdmin from '../../pages/admin/activity/edit';
@@ -35,7 +35,6 @@ class Routes extends Component {
                                 <Route exact path="/admin/users" element={<Users />}></Route>
                                 <Route exact path="/admin/activity" element={<Activity/>}></Route>
                                 <Route exact path="/admin/activity/edit/:id" element={<EditActivityAdmin/>}></Route>
-                                <Route exact path="/admin/profile" element={<ProfileAdmin/>}></Route>
                                 <Route exact path='/admin/advertise' element={<Advertise/>}></Route>
                                 <Route exact path='/admin/advertise/edit/:id' element={<EditAdvertiseAdmin/>}></Route>
                                 <Route exact path='/admin/gallery' element={<GalleryAdmin/>}></Route>
@@ -47,7 +46,6 @@ class Routes extends Component {
                                 <Route path="/admin/settings" element={<Navigate replace to="/login" />} />
                                 <Route path="/admin/users" element={<Navigate replace to="/login" />} />
                                 <Route path="/admin/activity" element={<Navigate replace to="/login" />} />
-                                <Route path="/admin/profile" element={<Navigate replace to="/login" />} />
                                 <Route exact path='/admin/advertise'element={<Navigate replace to="/login" />}></Route>
                                 <Route exact path='/admin/advertise/edit/:id'element={<Navigate replace to="/login" />}></Route>
                                 <Route exact path='/admin/gallery' element={<Navigate replace to="/login" />}></Route>
