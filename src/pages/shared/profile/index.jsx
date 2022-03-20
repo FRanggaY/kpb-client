@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import NavbarComponent from '../../../components/navbar';
 import FooterComponent from '../../../components/footer';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+// import { AiOutlineArrowRight } from 'react-icons/ai';
 // import Accordion from '../../../components/accordion';
 
 class Profile extends Component {
