@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { useNavigate  } from 'react-router-dom';
+// import { useNavigate  } from 'react-router-dom';
 
 
 function AddUsersModal() {
 
-    const navigate = useNavigate ();
+    // const navigate = useNavigate ();
     const [registerInput, setRegister] = useState({
         name: '',
         email: '',
@@ -31,10 +31,15 @@ function AddUsersModal() {
         }
         axios.get('/sanctum/csrf-cookie').then(res => {
             axios.post('/api/register', data).then(res => {
-                console.log(res.data.validation_errors);
+                // console.log(res.data.validation_errors);
                 if(res.status === 200){
+                    swal("Success", res.data.message, "success", {
+                        button: false,
+                    });
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
                     // localStorage.setItem('auth_name', res.data.username);
-                    swal("Success", res.data.message, "success");
                     // setRegister({ ...registerInput, error_list: res.data.validation_errors })
                 }
             }).catch(err => {

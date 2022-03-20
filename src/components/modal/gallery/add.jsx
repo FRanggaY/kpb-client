@@ -29,8 +29,13 @@ function AddGalleryModal() {
         axios.get('/sanctum/csrf-cookie').then(res => {
             axios.post('/api/gallery', formData).then(res => {
                 if(res.status === 200){
+                    swal("Success", res.data.message, "success", {
+                        button: false,
+                    });
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
                     // localStorage.setItem('auth_name', res.data.username);
-                    swal("Success", res.data.message, "success");
                     // setGallery({ ...galleryInput, error_list: res.data.validation_errors })
                 }
             }).catch(err => {

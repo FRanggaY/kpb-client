@@ -25,6 +25,7 @@ function AddAdversiteModal() {
         const formData = new FormData();
         formData.append('image', picture.image);
         formData.append('time', activity.time);
+        formData.append('date', activity.date);
         formData.append('description', activity.description);
         formData.append('title', activity.title);
         formData.append('link', activity.link);
@@ -32,8 +33,13 @@ function AddAdversiteModal() {
         axios.get('/sanctum/csrf-cookie').then(res => {
             axios.post('/api/activities', formData).then(res => {
                 if(res.status === 200){
+                    swal("Success", res.data.message, "success", {
+                        button: false,
+                    });
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
                     // localStorage.setItem('auth_name', res.data.username);
-                    swal("Success", res.data.message, "success");
                     // setGallery({ ...galleryInput, error_list: res.data.validation_errors })
                 }
             }).catch(err => {
@@ -67,9 +73,15 @@ function AddAdversiteModal() {
                                 <label for="link" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link</label>
                                 <input onChange={handleInput} value={activity.link} type="name" name="link" id="link" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
                             </div>
-                            <div>
-                                <label for="time" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Time</label>
-                                <input onChange={handleInput} value={activity.time} type="name" name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+                            <div className="flex gap-2">
+                                <div>
+                                    <label for="time" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Time</label>
+                                    <input onChange={handleInput} value={activity.time} type="time" name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"/>
+                                </div>
+                                <div>
+                                    <label for="date" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
+                                    <input onChange={handleInput} value={activity.date} type="date" name="date" id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"/>
+                                </div>
                             </div>
                             <div>
                                 <label for="image" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Image</label>

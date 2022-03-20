@@ -53,9 +53,13 @@ function EditAdvertiseAdmin() {
                 }
             }).then(res => {
                 if(res.status === 200){
-                    // localStorage.setItem('auth_name', res.data.username);
-                    swal("Success", res.data.message, "success");
+                    swal("Success", res.data.message, "success", {
+                        button: false,
+                    });
                     navigate('/admin/advertise');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
                     // setAdvertise({ ...advertiseInput, error_list: res.data.validation_errors })
                 }
             }).catch(err => {
