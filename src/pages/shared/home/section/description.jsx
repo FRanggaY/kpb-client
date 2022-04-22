@@ -3,14 +3,18 @@ import CardTeam from '../../../../components/cards/team';
 import CardAdvertisement from '../../../../components/cards/advertisement';
 import CardWorkProgram from '../../../../components/cards/work-program';
 import axios from 'axios';
+import { MiniLoading } from '../../../../components/loading';
 
 function DescriptionSection() {
+
+    const [loading, setLoading] = useState(true);
     const [advertisementList, setAdvertisemenList] = useState([]);
     const [user, setUser] = useState([]);
     useEffect(() => {
         axios.get('/api/advertisement').then(res => {
             if(res.status === 200){
                 setAdvertisemenList(res.data.data)
+                setLoading(false)
             }
         }).catch(err => {
             console.log(err.message)
@@ -21,6 +25,7 @@ function DescriptionSection() {
         axios.get('api/users/2').then(res => {
             if(res.status === 200){
                 setUser(res.data.data)
+                setLoading(false)
             }
         }).catch(err => {
             console.log(err.message)
@@ -39,19 +44,22 @@ function DescriptionSection() {
                         <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                     </a>
                 </div>
-                <div className="flex gap-5 my-5 flex-wrap justify-center">
-                    {user.map((item, index) => {
-                        return (
-                            <CardTeam 
-                                imgsrc={`http://localhost:8000/${item.profile_picture}`} 
-                                name={item.name}
-                                sosmed={item.social_media_user}
-                                position={item.position_user}
-                                key={index}
-                            />
-                        )
-                    })}
-                </div>
+                {loading 
+                    ?   <MiniLoading />
+                    :   <div className="flex gap-5 my-5 flex-wrap justify-center">
+                            {user.map((item) => {
+                                return (
+                                    <CardTeam 
+                                        imgsrc={`http://localhost:8000/${item.profile_picture}`} 
+                                        name={item.name}
+                                        sosmed={item.social_media_user}
+                                        position={item.position_user}
+                                        key={item}
+                                    />
+                                )
+                            })}
+                        </div>
+                }
                 
                 <p className="px-3 border-l-4 border-black capitalize font-semibold">Program Kerja</p>
                 <div className="p-5 ">
@@ -68,18 +76,21 @@ function DescriptionSection() {
             </div>
             <div className="kanan">
                 <p className="px-3 border-l-4 border-black capitalize font-semibold">Iklan</p>
-                <div className="flex lg:flex-col gap-5 my-5 flex-wrap justify-center">
-                    {advertisementList.map((item, index) => {
-                        return (
-                            <CardAdvertisement 
-                                image={`http://localhost:8000/${item.image}`} 
-                                title={item.title} 
-                                link={item.link} 
-                                key={index}
-                            />
-                        )
-                    })}
-                </div>
+                {loading 
+                    ?   <MiniLoading />
+                    :   <div className="flex lg:flex-col gap-5 my-5 flex-wrap justify-center">
+                            {advertisementList.map((item) => {
+                                return (
+                                    <CardAdvertisement 
+                                        image={`http://localhost:8000/${item.image}`} 
+                                        title={item.title} 
+                                        link={item.link} 
+                                        key={item}
+                                    />
+                                )
+                            })}
+                        </div>
+                }
             </div>
         </div>
     </section>

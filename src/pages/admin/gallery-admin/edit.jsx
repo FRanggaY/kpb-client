@@ -21,6 +21,7 @@ function EditGalleryAdmin() {
     
     const handleImage= (e) => {
         setPicture({ image: e.target.files[0]});
+        document.getElementById('img-preview').src =  URL.createObjectURL(e.target.files[0]);
     }
 
     useEffect(() => {
@@ -87,6 +88,7 @@ function EditGalleryAdmin() {
                                     <div>
                                         <label for="image" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Image</label>
                                         <input onChange={handleImage}  name="image" id="image" className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" type="file"/>
+                                        <img id="img-preview" src={`http://localhost:8000/${galleryInput.image}`} alt="" class="img-fluid" />
                                     </div> 
                                         
                                     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>

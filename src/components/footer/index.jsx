@@ -6,7 +6,7 @@ export default function Footer() {
     <>
       <footer className="relative bg-gray-700 pt-8 pb-6">
         <div className="container mx-auto px-auto">
-          <div className="flex flex-wrap text-center lg:text-left">
+          <div className="flex flex-wrap text-center lg:text-left justify-center">
             <div className="w-5/6 lg:w-6/12 px-4">
               <h4 className="text-3xl text-slate-300 font-semibold">KPB</h4>
               <h5 className="text-lg mt-0 mb-2 text-slate-300">

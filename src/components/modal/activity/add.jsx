@@ -18,6 +18,7 @@ function AddAdversiteModal() {
 
     const handleImage= (e) => {
         setPicture({ image: e.target.files[0]});
+        // document.getElementById('img-preview').src =  URL.createObjectURL(e.target.files[0]);
     }
     
     const gallerySubmit = (e) => {
@@ -86,6 +87,7 @@ function AddAdversiteModal() {
                             <div>
                                 <label for="image" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Image</label>
                                 <input onChange={handleImage} value={activity.image} name="image" id="image" className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" type="file"/>
+                                {/* <img id="img-preview" src=""alt="" class="img-fluid" /> */}
                             </div>
                             <div>
                                 <label for="description" class="text-left block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
