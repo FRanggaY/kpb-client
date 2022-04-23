@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
-import { MiniLoading } from '../loading';
 
 export default class NavbarComponent extends Component {
     state = {
@@ -25,11 +24,6 @@ export default class NavbarComponent extends Component {
   }
 
 render() {
-    if(this.state.loading){
-        return <div>
-            <MiniLoading />
-        </div>
-    }
     return (
         <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center bg-white justify-between px-2 py-2 navbar-expand-lg drop-shadow-md">
             <div className="container px-4 lg:px-24 mx-auto flex flex-wrap items-center justify-between">
